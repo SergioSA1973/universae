@@ -1,0 +1,83 @@
+http://localhost/tienda/index.html
+
+http://localhost/universae/login.php
+http://localhost/universae/menuSt.php
+
+http://localhost/universae/loginIndex.php
+----
+
+
+http://localhost/prueba/Index.php
+
+http://localhost/tree/contenedores.php
+
+
+http://localhost/FASE0/loginIndex.php
+http://localhost/VERSION1/PRINCIPAL/loginIndex.php
+http://localhost/FASE0/registro.php
+
+http://localhost/universae/domicilios.php
+
+http://localhost/FASE1/domicilios.php
+
+http://localhost/VERSION1/ARTICULOS/comprobarMoverObjeto.php?tipoObjeto='articulo'&idObjeto=1&tipoDestino='contenedor'&idDestino=5;
+ let urlComprobacion = `comprobarMoverObjeto.php?tipoObjeto=${tipoObjeto}&idObjeto=${idObjeto}&tipoDestino=${tipoDestino}&idDestino=${idDestino}`;
+
+let urlMover = `moverObjeto.php?tipoObjeto=${tipoObjeto}&idObjeto=${idObjeto}&tipoDestino=${tipoDestino}&idDestino=${idDestino}`;
+http://localhost/VERSION1/ARTICULOS/moverObjetoCambiado.php?tipoObjeto=articulo&idObjeto=1&tipoDestino=contenedor&idDestino=5
+
+
+http://localhost/FASE2/ubicaciones.php
+
+http://localhost/FASE3/contenedores.php
+
+http://localhost/FASE41/articulos.php
+http://localhost/FASE41/comprobarMoverObjeto.php?tipoObjeto=contenedor&idObjeto=10&tipoDestino=contenedor&idDestino=11
+http://localhost/FASE41/comprobarMoverObjeto.php?tipoObjeto=articulo&idObjeto=2&tipoDestino=contenedor&idDestino=9
+http://localhost/FASE6/listados.php
+
+ 
+http://localhost/FASE4/usoFunciones.php
+
+http://localhost/VERSION1/DOMICILIOS/AddDomicilio2.php
+
+http://localhost/RECURSIVIDAD/usoindex4.php
+
+----
+try {
+
+	if (empty($nombre_usuario) || empty($password)) {
+            throw new Exception("El nombre de usuario o la contraseña no pueden estar vacíos.");
+        }
+
+} catch (Exception $e) {
+    $loginMessage = "<div class='alert alert-danger'>Error: " . $e->getMessage() . "</div>";
+}
+----
+
+if ($tipoObjeto === 'contenedor' && $tipoDestino === 'contenedor') 
+{
+	//vemos si estamos moviendo el origen a un descendiente
+	//echo "id_objeto: ".$idObjeto;
+	$contenedoresHijos = obtenerContenedoresRecursivos2($pdo, $idObjeto);
+	$ids = array_column($contenedoresHijos, 'id_Contenedor');
+	
+	if (in_array($idDestino, $ids)) {
+    		echo "La variable está dentro del array \$ids.";
+	} else {
+    		echo "La variable NO está dentro del array \$ids.";
+	}
+
+
+	//echo "place: ".$placeholders;
+	//print_r($contenedoresHijos);
+	//print_r($placeholders);
+	exit();
+}
+
+
+
+-----
+            <a href="agregar_ubicacion.php?id_Domicilio=<?= $selected_domicilio ?>" class="btn btn-primary" onclick="checkAndRedirectAdd()">Agregar Ubicación</a>
+
+
