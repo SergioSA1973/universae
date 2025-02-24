@@ -1,4 +1,4 @@
-http://localhost/tienda/index.html
+http://localhost/tienda/index.html   
 
 http://localhost/universae/login.php
 http://localhost/universae/menuSt.php
